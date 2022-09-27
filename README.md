@@ -12,4 +12,4 @@ You can always make things better. Adding PDFs to cloudinary and such was not so
 ---
 
 # What did I learn?
-I should charge 10,000 more than I did. Seriously. I didn't charge much money, and I've seen other developers do this for a large chunk of change. 
+Things are good, but things can be better. Use the technology to get the job done. There is no need for "over reaching" to get the job accomplished. Do I like EJS? Maybe... maybe not. But I've been building a lot with it. And it works! Don't be a code weenie.
