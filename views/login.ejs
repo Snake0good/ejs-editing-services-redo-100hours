@@ -1,7 +1,69 @@
 <%- include('partials/header') -%>
 
-<main class="container">
-  <div class="row justify-content-center">
+<main class="bg-base-200">
+  <div class="hero pt-12 md:pt-0 lg:min-h-screen bg-base-200">
+    <div class="hero-content flex-col lg:flex-row-reverse">
+      <div class="text-center lg:text-left">
+        <h1 class="text-5xl font-bold">Welcome Back. Please Login</h1>
+        <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+      </div>
+      <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+        <div class="card-body">
+          <form action="/login" method="POST">
+            <div class="form-control">
+              <label class="label" form="exampleInputEmail1">
+                <span class="label-text">Email</span>
+              </label>
+              <input 
+              placeholder="email" 
+              class="input input-bordered w-full" 
+              type="email"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              name="email"/>
+            </div>
+            <div class="form-control">
+              <label class="label">
+                <span for="exampleInputPassword1" class="label-text">Password</span>
+              </label>
+              <input 
+                placeholder="password" 
+                class="input input-bordered w-full"
+                type="password"
+                id="exampleInputPassword1"
+                name="password" 
+              />
+              <label class="text-sm py-3">
+                Not a member? <a href="/signup" class="label-text-alt link link-hover text-secondary">Sign up!</a>
+              </label>
+            </div>
+            
+            <!-- error messages -->
+            <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
+            <div class="alert alert-warning my-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+              <%= el.msg %>
+            </div>
+              <% }) %> <% } %> <% if (locals.messages.info) { %> 
+              <% messages.info.forEach( el => { %>
+            <div class="alert alert-warning">
+              <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+              <%= el.msg %>
+            </div>
+              <% }) %> <% } %>
+            
+            <div class="form-control mt-6">
+              <button type='submit' class="btn btn-primary">Login</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- <div class="row justify-content-center">
     <section class="col-6 mt-5">
       <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
       <div class="alert alert-danger"><%= el.msg %></div>
@@ -34,7 +96,7 @@
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </section>
-  </div>
+  </div> -->
 </main>
 
 <%- include('partials/footer') -%>

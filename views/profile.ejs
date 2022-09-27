@@ -1,51 +1,89 @@
 <%- include('partials/header') -%>
-<div class="container">
-  <div class="row mt-5">
-      <div class="col-6">
-          <div>
-              <p><strong>User Name</strong>: <%= user.userName %></p>
-              <p><strong>Email</strong>: <%= user.email %></p>
-              <a href="/logout" class="col-3 btn btn-primary">Logout</a>
+<div class="p-3 md:p-20">
+  <div class="flex flex-col md:flex-row">
+      <div class="md:w-1/2 px-10">
+          <div class="flex ">
+            <div>
+              <div class="avatar online placeholder">
+                <div class="bg-white text-neutral-content rounded-full w-16 h-16">
+                  <span class="text-xl text-primary"><%= user.userName.slice(0, 2) %></span>
+                </div>
+              </div>
+            </div>
+              <div class="flex flex-col pl-5 py-2 space-y-2">
+                <p><span class="text-indigo-300">User Name</span>: <%= user.userName %></p>
+                <p><span class="text-indigo-300">Email</span>: <%= user.email %></p>
+                <a href="/logout" class="btn btn-primary">Logout</a>
+              </div>
           </div>
-          <div class="mt-5">
-            <h2>Add a post</h2>
-            <form action="/post/createPost" enctype="multipart/form-data" method="POST">
-              <div class="mb-3">
-                  <label for="title" class="form-label">Title</label>
-                  <input type="text" class="form-control" id="title" name="title">
-              </div>
-              <div class="mb-3">
-                <label for="caption" class="form-label">Caption</label>
-                <textarea class="form-control" id="caption" name="caption"></textarea>
-              </div>
-              <div class="mb-3">
-                <label for="imgUpload" class="form-label">Image</label>
-                <input type="file" class="form-control" id="imageUpload" name="file">
-              </div>
-              <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
-            </form>
+
+          <% if (user.admin === true) { %>
+            <div class="flex justify-center my-10">
+              <h1 class="text-3xl font-bold text-secondary">Admin Panel</h1>
+              
+            </div>
+          <% } else { %>
+          <div class="space-y-3 my-6 ">
+              <h2 class="text-3xl font-bold">Upload a Document</h2>
+              <p class="text-gray"><span class="underline text-pink-500">PLEASE READ FIRST</span>: To upload a document, please first fill out this information so we can better <span class="underline decoration-pink-500">understand your request.</span> We will send a personal confirmation email before completing your document, so please add any necessary information. </p>
+              <form action="/post/createPost" enctype="multipart/form-data" method="POST">
+                <div>
+                  <div class="mb-3">
+                    <label for="title" class="text-2xl">Name of Document</label>
+                    <input 
+                      type="text" 
+                      class="input input-bordered w-full bg-gray-200 text-black" 
+                      id="title" 
+                      name="title">
+                  </div>
+                  <div class="mb-3">
+                    <label for="caption" class="text-2xl">Special Requests</label>
+                    <textarea 
+                      class="input input-bordered w-full bg-gray-200 h-64 p-2 text-black" 
+                      id="caption" 
+                      name="caption">
+                    </textarea>
+                  </div>
+                  <div class="mb-3">
+                    <label for="imgUpload" class="text-2xl">Document</label>
+                    <input 
+                    class="block w-full text-lg text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 w-full bg-gray-200 text-black" 
+                    aria-describedby="file_input_help" 
+                    id="imageUpload"
+                    type="file"
+                    name="file">
+                    <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">PDF. No JPG or JPEG please</p>
+
+                  </div>
+                  <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
+                </div>
+              </form>
           </div>
+          <% } %>
       </div>
-
       
-      <div class="col-6">
-        <ul class="row list-unstyled">
-        <% for(var i=0; i<posts.length; i++) {%>
-          <li class="justify-content-between mt-5">
-            <a href="/post/<%= posts[i]._id%>">
-              Click -> <%= posts[i].title %>
-            </a>
-            <iframe class="img-fluid" src="<%= posts[i].image%>" style="height:300px; width:500px"></iframe>
-          </li>
-        <% } %>
-        </ul>
-
-        <% if (user.admin === true) { %>
-          <div class="row justify-content-center mt-5">
-            <a class="btn btn-primary" href="/feed">See All Documents</a>
-          </div> 
-        <% } %>
-      </div>  
+      <% if (user.admin === true) { %>
+        <div class="flex w-full justify-center mt-5">
+          <a class="btn btn-primary" href="/feed">See All Documents</a>
+        </div> 
+      <% } else { %>
+        <div class="md:w-1/2 px-3">
+          <ul class="h-full">
+          <% for(var i=0; i<posts.length; i++) {%>
+            <li class="justify-content-between mt-5">
+              <a class="text-2xl text-pink-500 text-bold" href="/post/<%= posts[i]._id%>">
+                Click to See Full Image
+                <!-- Click -> <%= posts[i].title %> -->
+              </a>
+              <iframe 
+                class="min-h-[500px] w-full h-full" 
+                src="<%= posts[i].image%>" 
+                ></iframe>
+            </li>
+          <% } %>
+          </ul>
+        </div>  
+      <% } %>
     </div>
   </div>
 </div>

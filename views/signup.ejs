@@ -1,39 +1,89 @@
 <%- include('partials/header') -%>
-    <main class="container">
-        <div class="row justify-content-center">
-            <section class="col-6 mt-5">
-                <% if (locals.messages.errors) { %>
-                    <% messages.errors.forEach( el => { %>
-                        <div class="alert alert-danger"><%= el.msg %></div>
-                    <% }) %>    
-                <% } %>
-                <% if (locals.messages.info) { %>
-                    <% messages.info.forEach( el => { %>
-                        <div class="alert alert-info"><%= el.msg %></div>
-                    <% }) %>    
-                <% } %>
-                <form action="/signup" method="POST">
-                    <div class="mb-3">
-                        <label for="userName" class="form-label">User Name</label>
-                        <input type="text" class="form-control" id="userName" name="userName">
-                      </div>
-                    <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label">Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
-                      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                    </div>
-                    <div class="mb-3">
-                      <label for="password" class="form-label">Password</label>
-                      <input type="password" class="form-control" id="password" name="password">
-                    </div>
-                    <div class="mb-3">
-                        <label for="confirmPassword" class="form-label">Confirm Password</label>
-                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword">
-                      </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                  </form>
-            </section>
+<main class="">
+  <div class="hero pt-12 md:pt-0 lg:min-h-screen bg-base-200">
+    <div class="hero-content flex-col lg:flex-row-reverse">
+      <div class="text-center lg:text-left">
+        <h1 class="text-5xl font-bold">Hello. Signup here.</h1>
+        <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+      </div>
+      <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+        <div class="card-body">
+          <form action="/signup" method="POST">
+            <div class="form-control">
+              <label for="userName" class="label">
+                <span class="label-text">User Name</span>
+              </label>
+              <input 
+                type="text" 
+                id="userName" 
+                name="userName"
+                placeholder="what shall we call you?" 
+                class="input input-bordered w-full" 
+                aria-describedby="emailHelp"/>
+            </div>
+            <div class="form-control">
+              <label class="label" form="exampleInputEmail1">
+                <span class="label-text">Email</span>
+              </label>
+              <input 
+                placeholder="our communication channel" 
+                class="input input-bordered w-full" 
+                type="email"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                name="email"/>
+            </div>
+            <div class="form-control">
+              <label class="label">
+                <span for="exampleInputPassword1" class="label-text">Password</span>
+              </label>
+              <input 
+                placeholder="password" 
+                class="input input-bordered"
+                type="password"
+                id="exampleInputPassword1"
+                name="password" 
+              />
+              <label class="label">
+                <span for="exampleInputPassword1" class="label-text">
+                  Confirm Password
+                </span>
+              </label>
+              <input 
+                placeholder="make sure passwords match" 
+                class="input input-bordered"
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword" 
+              />
+              <div id="emailHelp" class="text-sm text-gray-500">
+                We'll never share your email with anyone else.
+              </div>
+              <label class="text-sm py-3">
+                Already a member? <a href="/login" class="label-text-alt link link-hover text-secondary">Go to login</a>
+              </label>
+            </div>
+            
+            <!-- error messages -->
+            <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
+            <div class="text-secondary">
+              <%= el.msg %>
+            </div>
+              <% }) %> <% } %> <% if (locals.messages.info) { %> 
+              <% messages.info.forEach( el => { %>
+            <div class="text-secondary">
+              <%= el.msg %>
+            </div>
+              <% }) %> <% } %>
+            
+            <div class="form-control mt-6">
+              <button type='submit' class="btn btn-primary">Login</button>
+            </div>
+          </form>
         </div>
-    </main>
+      </div>
+    </div>
+  </div>
+</main>
 
 <%- include('partials/footer') -%>
