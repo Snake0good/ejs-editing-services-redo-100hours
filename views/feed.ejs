@@ -1,0 +1,23 @@
+<%- include('partials/header') -%>
+  
+<div class="w-full my-6">
+    <h1 class="text-3xl p-5">You have <%= posts.length %> documents to check out.</h1>
+    <div class="w-full h-full">
+      <ul class="flex flex-col w-full h-full md:flex-row md:flex-wrap">
+        <% for(var i=0; i<posts.length; i++) {%>
+          <li class="w-full h-full my-2 p-5 md:w-1/3">
+            <div class="h-full">
+              <a href="/post/<%= posts[i]._id%>" class="underline text-indigo-500">View Uploaded Doc</a>
+              <p>User: <%= posts[i].user.userName %></p>
+              <p>Email: <%= posts[i].user.email %></p>
+              <p>Title: <%= posts[i].title %></p>
+              <p>Special Requests: <%= posts[i].caption %></p>
+              <p>Paid: <%= posts[i] %></p>
+              <iframe class="w-full h-[500px] my-1" src="<%= posts[i].image%>"></iframe>
+            </div>
+          </li>
+        <% } %>
+        </ul>
+    </div>
+  </div>  
+<%- include('partials/footer') -%>

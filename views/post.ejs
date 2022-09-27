@@ -1,0 +1,37 @@
+<%- include('partials/header') -%>
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-6">
+      <h2>User: <%= post.user.userName %></h2>
+      
+      <h2>Title: <%= post.title %></h2>
+      
+      <div class="mt-5">
+        <p>Special Requests: <%= post.caption %></p>
+      </div>
+      
+      <iframe src="<%= post.image %>" style="width:100%; height:100%"></iframe>
+      
+      <div class="row justify-content-between">
+        <%if(post.user == user.id || user.admin == true){ %>
+        <form
+          action="/post/deletePost/<%= post.id %>?_method=DELETE"
+          method="POST"
+          class="col-6"
+        >
+          <button class="btn btn-primary fa fa-trash" type="submit">Delete the Doc</button>
+        </form>
+        <%}%>
+
+        <div class="col-6">
+          <a class="btn btn-primary" href="/profile">Return to Profile</a>
+        </div>
+      
+      </div>
+    
+    </div>
+    
+  </div>
+</div>
+
+<%- include('partials/footer') -%>
