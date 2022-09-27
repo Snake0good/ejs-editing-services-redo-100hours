@@ -1,5 +1,7 @@
 # What is This?
-A dude wants a website with upload, download, signup, signin functionality. That's a lot. So I said, sure!
+![ezgif-5-d194a8eee2](https://user-images.githubusercontent.com/57625094/192430130-cdaff7f6-59fa-4d93-a4c8-35f473038c1e.gif)
+
+A buddy wanted a website with upload, download, signup, signin, and payment functionality. That's a lot. So I said, sure!
 
 ---
 
