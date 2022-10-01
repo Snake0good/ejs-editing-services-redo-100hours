@@ -1,5 +1,11 @@
 <%- include('partials/header') -%>
-  
+
+<% if (user.admin !== true) { %>
+  <div class="w-screen h-screen flex justify-center place-items-center px-5">
+    <h1 class="text-3xl">Sorry you don't have access to this page.</h1>
+    <a href="/profile" class="btn btn-primary">Back to Profile</a>
+  </div>
+<% } else { %>
 <div class="w-full my-6">
     <h1 class="text-3xl p-5">You have <%= posts.length %> documents to check out.</h1>
     <div class="w-full h-full">
@@ -20,4 +26,6 @@
         </ul>
     </div>
   </div>  
+
+<% } %>
 <%- include('partials/footer') -%>

@@ -2,13 +2,31 @@
 
     <!-- This example requires Tailwind CSS v2.0+ -->
 <div class="bg-base-200 py-12 min-h-screen">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 md:mt-24">
-      <div class="lg:text-center md:space-y-10">
-        <h2 class="text-2xl font-semibold text-primary">Services</h2>
-        <p class="mt-2 text-3xl font-bold leading-8 tracking-tight text-gray-200 sm:text-4xl">Don't worry about paying too much. We've got you.</p>
-        <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.</p>
-      </div>
-  
+  <div class="flex flex-wrap -mx-4">
+    <div class="w-full px-4">
+       <div class="text-center mx-auto mb-[60px] lg:mb-20 max-w-[510px]">
+          <span class="font-semibold text-2xl text-primary mb-2 block">
+          Services
+          </span>
+          <h2
+             class="
+             font-bold
+             text-3xl
+             sm:text-4xl
+             md:text-[40px]
+             text-dark
+             mb-4
+             "
+             >
+             Don't worry about paying too much. We've got you.
+          </h2>
+          <p class="text-base text-body-color px-4">
+            Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.
+          </p>
+       </div>
+    </div>
+ </div>
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 md:mt-24">  
       <div class="mt-10">
         <dl class="space-y-10 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10 md:space-y-0">
           <div class="relative shadow-xl p-8 rounded-lg bg-base-100 md:h-64">
@@ -65,6 +83,24 @@
         </dl>
       </div>
     </div>
+</div>
+
+
+<div class="bg-gray-50">
+  <div class="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-16 lg:px-8">
+    <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+      <span class="block">Ready to dive in?</span>
+      <span class="block text-indigo-600">Will give you a free trial today.</span>
+    </h2>
+    <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+      <div class="inline-flex rounded-md shadow">
+        <a href="/signup" class="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-5 py-3 text-base font-medium text-white hover:bg-indigo-700">Get Started</a>
+      </div>
+      <div class="ml-3 inline-flex rounded-md shadow">
+        <a href="/signup" class="inline-flex items-center justify-center rounded-md border border-transparent bg-white px-5 py-3 text-base font-medium text-indigo-600 hover:bg-indigo-50">Create an Account</a>
+      </div>
+    </div>
   </div>
+</div>
 
 <%- include('partials/footer') -%>

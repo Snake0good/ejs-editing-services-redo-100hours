@@ -10,5 +10,8 @@ module.exports = {
   },
   getPricing: (req, res) => {
     res.render("pricing.ejs")
+  }, 
+  getContact: (req, res) => {
+    res.render("contact.ejs")
   }
 };

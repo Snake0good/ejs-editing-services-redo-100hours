@@ -10,11 +10,13 @@ module.exports = {
       console.log(err);
     }
   },
-  getFeed: async (req, res) => {
+  getAdminDashboard: async (req, res) => {
     try {
       const posts = await Post.find().sort({ createdAt: "desc" }).lean();
       
-      res.render("feed.ejs", { posts: posts });
+
+      /// do we have access to the req.user?
+      res.render("adminDashboard.ejs", { posts: posts, user: req.user });
     } catch (err) {
       console.log(err);
     }
@@ -48,6 +50,8 @@ module.exports = {
       console.log(err);
     }
   },
+
+  // can you modify this to make it PAID?
   likePost: async (req, res) => {
     try {
       await Post.findOneAndUpdate(

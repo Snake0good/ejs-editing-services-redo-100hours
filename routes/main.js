@@ -10,10 +10,11 @@ router.get("/", homeController.getIndex);
 router.get("/about", homeController.getAbout);
 router.get("/pricing", homeController.getPricing);
 router.get("/services", homeController.getServices);
+router.get("/contact", homeController.getContact);
 
 // more complicated routes
 router.get("/profile", ensureAuth, postsController.getProfile);
-router.get("/feed", ensureAuth, postsController.getFeed);
+router.get("/adminDashboard", ensureAuth, postsController.getAdminDashboard);
 router.get("/login", authController.getLogin);
 router.post("/login", authController.postLogin);
 router.get("/logout", authController.logout);

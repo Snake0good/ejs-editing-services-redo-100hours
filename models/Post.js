@@ -17,9 +17,9 @@ const PostSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  likes: {
-    type: Number,
-    required: true,
+  paid: {
+    type: Boolean,
+    default: false
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,
