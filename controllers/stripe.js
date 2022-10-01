@@ -1,8 +1,14 @@
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
+//Use .env file in config folder
+require("dotenv").config({ path: "./config/.env" });
 
-// just for test purposes
-const YOUR_DOMAIN = 'http://localhost:2121';
+
+// devlopment purposes
+// const YOUR_DOMAIN = `http://localhost:${process.env.PORT}`;
+
+// production purpose
+const YOUR_DOMAIN = 'https://web-production-05a7.up.railway.app/';
 const storeItem = { priceInCents: 5000, name: "5 pages - Editing" }
 
 
