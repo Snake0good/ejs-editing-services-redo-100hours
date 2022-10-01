@@ -2,9 +2,38 @@
 <div class="container">
   <div class="flex flex-col justify-center mt-5">
     <div class="">
-      <h2 class="py-3"> <span class="text-primary text-xl font-bold pl-10">User: </span><%= post.user.userName %></h2> 
-      <h2 class="py-3"> <span class="text-primary text-xl font-bold pl-10">Title: </span><%= post.title %></h2>
-      <h2 class="py-3"> <span class="text-primary text-xl font-bold pl-10">Special Requests: </span><%= post.caption %></h2>
+      <div class="lg:flex place-items-center justify-around">
+        <div class="m-10 p-6 border-2 rounded-xl bg-slate-200 text-base-200 max-w-[450px] space-y-2">
+          <h1 class="text-2xl font-bold">User-Post Profile:</h1>
+          <h2> <span class="text-primary text-xl font-bold">User: </span><%= post.user.userName %></h2> 
+          <h2> <span class="text-primary text-xl font-bold">Title: </span><%= post.title %></h2>
+          <h2> <span class="text-primary text-xl font-bold">Special Requests: </span><%= post.caption %></h2>
+          <h2> <span class="text-primary text-xl font-bold">Paid: </span>
+            <% if(post.paid === false) { %> 
+              <span class="text-red-500"> &#10005; NOT PAID </span>  
+              <% } else { %>
+                <span class="text-green-500 font-bold"> &#x2713; PAID </span>  
+                <% } %>
+          </h2>
+        </div>
+
+
+        <!-- The Payment Form -->
+        <div class="m-10 p-6 border-2 rounded-xl bg-slate-200 text-base-200 max-w-[450px]">
+          <h1 class="text-2xl font-bold">Payment Details:</h1>
+          <form action="/post/payInvoice" enctype="multipart/form-data" method="POST" class="space-y-2">
+            <h1><span class="text-primary text-xl font-bold">User: </span> <%= post.user.userName %></h1>
+            <h1><span class="text-primary text-xl font-bold">Title: </span> <%= post.title %></h1>
+            <h1><span class="text-primary text-xl font-bold">User Email: </span> <%= post.user.email %></h1>
+            <h1><span class="text-primary text-xl font-bold">Payment Amount: </span> <%= post.paymentAmount %></h1>
+              
+            <div class="flex place-items-center justify-between">
+              <button type="submit" class="btn btn-primary text-base-200 hover:text-slate-200 w-1/2" value="Payment">Pay with Stripe</button>
+              <h1 class="font-bold w-1/2 pl-5 text-2xl text-center">Total: <span class="text-green-600"> <%= post.paymentAmount %> $157.00</span></h1>
+            </div>
+          </form>
+        </div>
+      </div>
 
       
     

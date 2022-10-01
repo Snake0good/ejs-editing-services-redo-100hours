@@ -12,11 +12,11 @@ module.exports = {
   },
   getAdminDashboard: async (req, res) => {
     try {
-      const posts = await Post.find().sort({ createdAt: "desc" }).lean();
-      
+      const posts = await Post.find().sort({ createdAt: "desc" }).lean().populate('user');
 
-      /// do we have access to the req.user?
+      /// do we have access to the req.user => sending the user checks 
       res.render("adminDashboard.ejs", { posts: posts, user: req.user });
+
     } catch (err) {
       console.log(err);
     }
