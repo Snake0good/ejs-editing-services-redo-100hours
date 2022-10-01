@@ -13,5 +13,11 @@ module.exports = {
   }, 
   getContact: (req, res) => {
     res.render("contact.ejs")
+  }, 
+  getSuccess: (req,res) => {
+    res.render("success.ejs")
+  },
+  getCancel: (req,res) => {
+    res.render("cancel.ejs")
   }
 };

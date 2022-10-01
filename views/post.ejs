@@ -21,7 +21,7 @@
         <!-- The Payment Form -->
         <div class="m-10 p-6 border-2 rounded-xl bg-slate-200 text-base-200 max-w-[450px]">
           <h1 class="text-2xl font-bold">Payment Details:</h1>
-          <form action="/post/payInvoice" enctype="multipart/form-data" method="POST" class="space-y-2">
+          <form action="/post/<%= post._id%>" enctype="multipart/form-data" method="POST" class="space-y-2">
             <h1><span class="text-primary text-xl font-bold">User: </span> <%= post.user.userName %></h1>
             <h1><span class="text-primary text-xl font-bold">Title: </span> <%= post.title %></h1>
             <h1><span class="text-primary text-xl font-bold">User Email: </span> <%= post.user.email %></h1>

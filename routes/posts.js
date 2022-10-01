@@ -2,10 +2,14 @@ const express = require("express");
 const router = express.Router();
 const upload = require("../middleware/multer");
 const postsController = require("../controllers/posts");
+const stripeController = require("../controllers/stripe");
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 //Post Routes - simplified for now
 router.get("/:id", ensureAuth, postsController.getPost);
+
+// redirect and pay for the document
+router.post("/:id",ensureAuth, stripeController.stripePayment)
 
 router.post("/createPost", upload.single("file"), postsController.createPost);
 

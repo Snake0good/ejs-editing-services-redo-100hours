@@ -12,6 +12,10 @@ router.get("/pricing", homeController.getPricing);
 router.get("/services", homeController.getServices);
 router.get("/contact", homeController.getContact);
 
+// Stripe Payment Success, Cancel, or Failure
+router.get("/success", homeController.getSuccess);
+router.get("/cancel", homeController.getCancel);
+
 // more complicated routes
 router.get("/profile", ensureAuth, postsController.getProfile);
 router.get("/adminDashboard", ensureAuth, postsController.getAdminDashboard);
