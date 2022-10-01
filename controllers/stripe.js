@@ -8,7 +8,7 @@ require("dotenv").config({ path: "./config/.env" });
 // const YOUR_DOMAIN = `http://localhost:${process.env.PORT}`;
 
 // production purpose
-const YOUR_DOMAIN = 'https://web-production-05a7.up.railway.app/';
+const YOUR_DOMAIN = 'https://web-production-05a7.up.railway.app';
 const storeItem = { priceInCents: 5000, name: "5 pages - Editing" }
 
 
