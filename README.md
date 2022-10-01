@@ -1,5 +1,5 @@
 # What is This?
-![ezgif-5-d194a8eee2](https://user-images.githubusercontent.com/57625094/192430130-cdaff7f6-59fa-4d93-a4c8-35f473038c1e.gif)
+![ezgif-4-922a5ca5f9](https://user-images.githubusercontent.com/57625094/192662711-bf35d50c-e433-4500-891d-856abbfa494b.gif)
 
 A buddy wanted a website with upload, download, signup, signin, and payment functionality. That's a lot. So I said, sure!
 
